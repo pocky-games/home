@@ -1,6 +1,16 @@
 /* ==========================================
-   1. 基本設定（リセットとベース）
+   1. デザインシステム（Catnose風カラー＆フォント）
    ========================================== */
+:root {
+  --bg-color: #fafafa;         /* ほんの少し温かみのある、極めて薄いグレー */
+  --card-bg: #ffffff;          /* カードの背景（完全な白） */
+  --text-main: #171717;        /* ほぼ黒に近い、非常に上品なダークチャコール */
+  --text-sub: #666666;         /* 控えめなグレー（説明文や日付用） */
+  --border-color: #e5e5e5;     /* 極薄の境界線 */
+  --accent-color: #3b82f6;     /* リンクなどのアクセント用ブルー */
+  --radius: 12px;              /* やわらかい印象を与える角丸 */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,143 +18,158 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  color: #333333;
-  background-color: #f8f9fa; /* 柔らかな薄いグレーの背景 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
   line-height: 1.8;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased; /* 文字をクッキリ滑らかに見せる */
 }
 
-/* ページ全体のコンテナ（最大幅を制限して中央寄せ） */
+/* ページ全体の幅（Catnose風のキュッとまとまった美しいサイズ感） */
 #outer {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 60px 24px; /* 上下に大きめの余白 */
 }
 
 /* ==========================================
-   2. ヘッダー
+   2. ヘッダー（極シンプル＆クリーン）
    ========================================== */
 header {
-  padding: 40px 0 30px 0;
-  border-bottom: 2px solid #e9ecef;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
+#head-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* タイトルは太く、少し文字間を詰めると今っぽくなります */
 header h1 {
-  font-size: 2rem;
-  color: #1a1a1a;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
 }
 
 header .description {
-  font-size: 0.95rem;
-  color: #6c757d;
+  font-size: 1rem;
+  color: var(--text-sub);
+  font-weight: 400;
 }
 
 /* ==========================================
-   3. レイアウト（メインとサイドバーの横並び）
+   3. 2カラムレイアウト（余白を広めにとって空気感を出す）
    ========================================== */
 #content-wrapper {
   display: flex;
-  gap: 40px; /* メインとサイドバーの間の余白 */
+  gap: 40px;
 }
 
 main {
-  flex: 3; /* メインを広く取る */
+  flex: 1; /* メインエリアを広げる */
   min-width: 0;
 }
 
 aside {
-  flex: 1; /* サイドバーの幅 */
-  min-width: 250px;
+  width: 260px; /* サイドバーの幅を固定 */
+  flex-shrink: 0;
 }
 
 /* ==========================================
-   4. メインコンテンツ（記事部分）
+   4. メインコンテンツ（美しいタイポグラフィのカード）
    ========================================== */
 #inner {
-  background-color: #ffffff; /* 記事エリアを白背景にして引き締める */
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); /* うっすらとした影 */
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 40px;
+  /* あえて重い影はつけず、ごくわずかな影でフラットに仕上げる */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
-/* 見出しのデザイン */
+/* 記事の見出し（Catnose風：装飾を省き、フォントサイズと余白だけで魅せる） */
 #inner h2 {
-  font-size: 1.6rem;
-  color: #111111;
-  border-left: 5px solid #3b82f6; /* 青い左線（アクセント） */
-  padding-left: 12px;
-  margin-bottom: 20px;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--text-main);
 }
 
 #inner h3 {
-  font-size: 1.3rem;
-  color: #222222;
-  border-bottom: 1px solid #e5e7eb; /* 下線 */
-  padding-bottom: 8px;
-  margin-top: 35px;
-  margin-bottom: 15px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  color: var(--text-main);
 }
 
 #inner h4 {
   font-size: 1.1rem;
-  color: #333333;
-  margin-top: 25px;
-  margin-bottom: 10px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  color: var(--text-main);
 }
 
-/* 本文 */
+/* 本文の文字サイズと行間 */
 #inner p {
   font-size: 1rem;
-  color: #4b5563;
-  margin-bottom: 20px;
+  color: #374151; /* 本文は少しだけ柔らかい黒に */
+  margin-bottom: 24px;
 }
 
 #inner p:last-child {
-  margin-bottom: 0; /* 最後の段落の余白は不要 */
+  margin-bottom: 0;
 }
 
 /* ==========================================
-   5. サイドバー
+   5. サイドバー（浮き立つようなミニマルメニュー）
    ========================================== */
 #middle-inner {
-  background-color: #ffffff;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
   padding: 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .side-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-transform: uppercase; /* 大文字にする */
-  letter-spacing: 0.1em;
-  color: #111111;
-  border-bottom: 2px solid #3b82f6;
-  padding-bottom: 6px;
-  margin-bottom: 15px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase; /* MENUを大文字に */
+  letter-spacing: 0.15em;
+  color: var(--text-sub);
+  margin-bottom: 16px;
 }
 
 .side ul {
-  list-style: none; /* リストの「・」を消す */
+  list-style: none;
 }
 
+/* メニューの各項目。少し余白を広げ、ホバー時の動きを滑らかに */
 .side li {
-  padding: 8px 0;
-  border-bottom: 1px dashed #f3f4f6;
+  margin-bottom: 4px;
 }
 
-.side li:last-child {
-  border-bottom: none;
+.side li a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
-/* リンクを想定した擬似スタイル（後でaタグにした時に綺麗になります） */
-.side li:hover {
-  color: #3b82f6;
-  cursor: pointer;
+/* ホバー時にほんのり背景がグレーになり、右に少しズレる上品な演出 */
+.side li a:hover {
+  background-color: #f3f4f6;
+  color: var(--accent-color);
+  transform: translateX(4px);
 }
 
 /* ==========================================
@@ -152,27 +177,37 @@ aside {
    ========================================== */
 footer {
   text-align: center;
-  padding: 40px 0;
-  margin-top: 40px;
-  color: #9ca3af;
+  padding-top: 80px;
   font-size: 0.85rem;
-  border-top: 1px solid #e5e7eb;
+  color: var(--text-sub);
 }
 
 /* ==========================================
    7. レスポンシブ対応（スマホ表示）
    ========================================== */
 @media (max-width: 768px) {
-  #content-wrapper {
-    flex-direction: column; /* スマホでは縦並びにする */
-    gap: 30px;
+  #outer {
+    padding: 40px 16px;
   }
-  
+
   header {
-    padding: 30px 0 20px 0;
+    margin-bottom: 40px;
   }
-  
-  #inner, #middle-inner {
-    padding: 20px; /* スマホでは余白を少し狭く */
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  #content-wrapper {
+    flex-direction: column; /* スマホでは1カラムに */
+    gap: 24px;
+  }
+
+  aside {
+    width: 100%; /* 横幅いっぱいに */
+  }
+
+  #inner {
+    padding: 24px; /* スマホでは中の余白を少しギュッと */
   }
 }
