@@ -2,40 +2,47 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>My Web Log</title>
-<meta name="keywords" content="ブログ,デザイン,HTML">
-<meta name="description" content="デザインのコツを紹介するブログです">
+<title>あなたのＨＰタイトル</title>
+<meta name="keywords" content="ページのキーワードA,B,C">
+<meta name="description" content="ページの説明">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="index.css">
 </head>
 <body>
 <div id="outer">
-<header><div id="header-container"><div id="head-inner"><h1>My Web Log</h1>
-<p class="description">日々のデザインやコーディングについて発信するブログ</p></div></div>
+<header>
+  <div id="header-container">
+    <div id="head-inner">
+      <h1>あなたのＨＰタイトル</h1>
+      <p class="description">あなたのＨＰの説明文</p>
+    </div>
+  </div>
 </header>
 <div id="content-wrapper">
-<main>
-<div id="inner">
-<h2>記事ページ見出し・大</h2>
-<p>文章あれこれ。ここには記事のメインとなる文章が入ります。適度に余白があり、フォントも目に優しいゴシック体を採用しているので非常に読みやすくなっています。</p>
-<h3>記事ページ見出し・中</h3>
-<p>文章あれこれ。詳細な説明をここに書きます。</p>
-<h4>記事ページ見出し・小</h4>
-<p>文章あれこれ。補足情報などはこちらへ。</p>
+  <main>
+    <div id="inner">
+      <h2>記事ページ見出し・大</h2>
+      <p>文章あれこれ。ここにはテキストが入ります。余計な装飾を削ぎ落とし、ゆったりとした文字間隔と十分な行間を確保することで、読者がストレスなく文章を読み進められるよう設計しています。</p>
+      <h3>記事ページ見出し・中</h3>
+      <p>さらに詳細な文章をここに記述します。catnoseさんのサイトのように、白背景に非常に薄い境界線を1本引くだけのシンプルなカードデザインは、コンテンツそのものを主役に引き立ててくれます。</p>
+      <h4>記事ページ見出し・小</h4>
+      <p>補足やまとめの文章をここに記述します。</p>
+    </div>
+  </main>
+  <aside>
+    <div id="middle-inner">
+      <div class="side-title">menu</div>
+      <div class="side">
+        <ul>
+          <!-- CSSのホバー効果を活かすため a タグに変更しています -->
+          <li><a href="#">記事ページへのリンク</a></li>
+          <li><a href="#">記事ページへのリンク</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
 </div>
-</main>
-<aside>
-<div id="middle-inner">
-<div class="side-title">menu</div>
-<div class="side">
-<ul>
-<li><a href="#" style="text-decoration: none; color: inherit;">人気の記事</a></li>
-<li><a href="#" style="text-decoration: none; color: inherit;">カテゴリ一覧</a></li>
-</ul>
+<footer>© 2010 あなたのホームページ</footer>
 </div>
-</div>
-</aside>
-</div>
-<footer>© 2026 My Web Log</footer>
-</div></body>
+</body>
 </html>
